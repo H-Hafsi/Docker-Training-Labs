@@ -1,10 +1,10 @@
 # Chapitre 1 : Introduction aux conteneurs
 
 !!! warning "Under construction"
-    Cette note de cours est en cours de rédaction.
+Cette note de cours est en cours de rédaction.
 
 !!! abstract "Contenu prévu"
-    Conteneur et machine virtuelle, namespaces et cgroups, architecture de Docker (client, daemon, containerd, runc), normes OCI, choix de l'environnement de TP
+Conteneur et machine virtuelle, namespaces et cgroups, architecture de Docker (client, daemon, containerd, runc), normes OCI, choix de l'environnement de TP
 
     Acquis d'apprentissage visés : **AA1**
 
