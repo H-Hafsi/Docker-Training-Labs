@@ -1,0 +1,167 @@
+# ---------------------------------------------------------------
+# Dépôt modèle : site de cours (MkDocs Material + GitHub Pages)
+# À personnaliser : site_name, site_url, repo_url, extra.matiere, nav
+# ---------------------------------------------------------------
+site_name: "Docker"
+site_description: Cours et travaux pratiques – Master DevOps et Cloud Computing, ISET Tozeur
+site_url: https://h-hafsi.github.io/Docker-Training-Labs/
+repo_url: https://github.com/H-Hafsi/Docker-Training-Labs
+repo_name: H-Hafsi/Docker-Training-Labs
+copyright: © 2026 ISET Tozeur – Département Informatique
+
+theme:
+  name: material
+  custom_dir: overrides
+  language: fr
+  logo: assets/img/logo-iset.svg
+  favicon: assets/img/logo-iset.svg
+  font:
+    text: Source Sans 3
+    code: JetBrains Mono
+  palette:
+    scheme: default
+    primary: custom
+    accent: custom
+  features:
+    - navigation.tabs
+    - navigation.top
+    - navigation.indexes
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+    - toc.follow
+
+extra_css:
+  - assets/css/extra.css
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+plugins:
+  - search:
+      lang: fr
+
+# Textes de la page d'accueil (voir overrides/home.html)
+extra:
+  matiere:
+    etiquette: "Master DevOps et Cloud Computing · ISET Tozeur"
+    titre: "Docker : conteneurisation, orchestration et industrialisation d'applications"
+    sous_titre: "Construire, distribuer, sécuriser, orchestrer avec Swarm et livrer par CI/CD des applications conteneurisées."
+    premier_lien: partie-1-fondations/ch01-introduction-aux-conteneurs/cours/
+    chiffres:
+      - { valeur: "45 h", libelle: "de formation" }
+      - { valeur: "3", libelle: "crédits ECTS" }
+      - { valeur: "4", libelle: "parties" }
+      - { valeur: "Docker", libelle: "moteur de TP" }
+      - { valeur: "Swarm", libelle: "orchestration" }
+
+nav:
+  - Syllabus: index.md
+  - "Partie 1 – Fondations":
+      - partie-1-fondations/index.md
+      - "Chapitre 1 – Introduction aux conteneurs":
+          - Cours: partie-1-fondations/ch01-introduction-aux-conteneurs/cours.md
+          - "Lab 1.1 – Installer Docker": partie-1-fondations/ch01-introduction-aux-conteneurs/lab-1-1-installer-docker.md
+          - "Lab 1.2 – Premiers conteneurs": partie-1-fondations/ch01-introduction-aux-conteneurs/lab-1-2-premiers-conteneurs.md
+          - Quiz: partie-1-fondations/ch01-introduction-aux-conteneurs/quiz.md
+      - "Chapitre 2 – Cycle de vie des conteneurs":
+          - Cours: partie-1-fondations/ch02-cycle-de-vie-des-conteneurs/cours.md
+          - "Lab 2.1 – Gérer le cycle de vie": partie-1-fondations/ch02-cycle-de-vie-des-conteneurs/lab-2-1-gerer-le-cycle-de-vie.md
+          - "Lab 2.2 – Publier et configurer un service": partie-1-fondations/ch02-cycle-de-vie-des-conteneurs/lab-2-2-publier-et-configurer-un-service.md
+          - Quiz: partie-1-fondations/ch02-cycle-de-vie-des-conteneurs/quiz.md
+      - "Chapitre 3 – Images et Dockerfile":
+          - Cours: partie-1-fondations/ch03-images-et-dockerfile/cours.md
+          - "Lab 3.1 – Écrire un premier Dockerfile": partie-1-fondations/ch03-images-et-dockerfile/lab-3-1-ecrire-un-premier-dockerfile.md
+          - "Lab 3.2 – Cache et couches": partie-1-fondations/ch03-images-et-dockerfile/lab-3-2-cache-et-couches.md
+          - Quiz: partie-1-fondations/ch03-images-et-dockerfile/quiz.md
+      - "Chapitre 4 – Registres et distribution":
+          - Cours: partie-1-fondations/ch04-registres-et-distribution/cours.md
+          - "Lab 4.1 – Publier sur Docker Hub": partie-1-fondations/ch04-registres-et-distribution/lab-4-1-publier-sur-docker-hub.md
+          - "Lab 4.2 – Déployer un registre privé": partie-1-fondations/ch04-registres-et-distribution/lab-4-2-deployer-un-registre-prive.md
+          - Quiz: partie-1-fondations/ch04-registres-et-distribution/quiz.md
+      - Mini-projet 1: partie-1-fondations/mini-projet-1.md
+  - "Partie 2 – Données, réseau et exploitation":
+      - partie-2-donnees-reseau-et-exploitation/index.md
+      - "Chapitre 5 – Volumes et persistance":
+          - Cours: partie-2-donnees-reseau-et-exploitation/ch05-volumes-et-persistance/cours.md
+          - "Lab 5.1 – Persister des données": partie-2-donnees-reseau-et-exploitation/ch05-volumes-et-persistance/lab-5-1-persister-des-donnees.md
+          - "Lab 5.2 – Sauvegarder et restaurer un volume": partie-2-donnees-reseau-et-exploitation/ch05-volumes-et-persistance/lab-5-2-sauvegarder-et-restaurer-un-volume.md
+          - Quiz: partie-2-donnees-reseau-et-exploitation/ch05-volumes-et-persistance/quiz.md
+      - "Chapitre 6 – Réseau Docker":
+          - Cours: partie-2-donnees-reseau-et-exploitation/ch06-reseau-docker/cours.md
+          - "Lab 6.1 – Réseaux et résolution DNS": partie-2-donnees-reseau-et-exploitation/ch06-reseau-docker/lab-6-1-reseaux-et-resolution-dns.md
+          - "Lab 6.2 – Isoler une application par réseaux": partie-2-donnees-reseau-et-exploitation/ch06-reseau-docker/lab-6-2-isoler-une-application-par-reseaux.md
+          - Quiz: partie-2-donnees-reseau-et-exploitation/ch06-reseau-docker/quiz.md
+      - "Chapitre 7 – Docker Compose":
+          - Cours: partie-2-donnees-reseau-et-exploitation/ch07-docker-compose/cours.md
+          - "Lab 7.1 – Première pile Compose": partie-2-donnees-reseau-et-exploitation/ch07-docker-compose/lab-7-1-premiere-pile-compose.md
+          - "Lab 7.2 – Application trois niveaux avec Compose": partie-2-donnees-reseau-et-exploitation/ch07-docker-compose/lab-7-2-application-trois-niveaux-avec-compose.md
+          - Quiz: partie-2-donnees-reseau-et-exploitation/ch07-docker-compose/quiz.md
+      - "Chapitre 8 – Observabilité et dépannage":
+          - Cours: partie-2-donnees-reseau-et-exploitation/ch08-observabilite-et-depannage/cours.md
+          - "Lab 8.1 – Superviser une pile applicative": partie-2-donnees-reseau-et-exploitation/ch08-observabilite-et-depannage/lab-8-1-superviser-une-pile-applicative.md
+          - "Lab 8.2 – Dépanner des pannes imposées": partie-2-donnees-reseau-et-exploitation/ch08-observabilite-et-depannage/lab-8-2-depanner-des-pannes-imposees.md
+          - Quiz: partie-2-donnees-reseau-et-exploitation/ch08-observabilite-et-depannage/quiz.md
+      - Mini-projet 2: partie-2-donnees-reseau-et-exploitation/mini-projet-2.md
+  - "Partie 3 – Durcissement et orchestration Swarm":
+      - partie-3-durcissement-et-orchestration-swarm/index.md
+      - "Chapitre 9 – Optimisation des images":
+          - Cours: partie-3-durcissement-et-orchestration-swarm/ch09-optimisation-des-images/cours.md
+          - "Lab 9.1 – Construire avec multi-stage": partie-3-durcissement-et-orchestration-swarm/ch09-optimisation-des-images/lab-9-1-construire-avec-multi-stage.md
+          - "Lab 9.2 – Réduire et comparer des images": partie-3-durcissement-et-orchestration-swarm/ch09-optimisation-des-images/lab-9-2-reduire-et-comparer-des-images.md
+          - Quiz: partie-3-durcissement-et-orchestration-swarm/ch09-optimisation-des-images/quiz.md
+      - "Chapitre 10 – Sécurité des conteneurs":
+          - Cours: partie-3-durcissement-et-orchestration-swarm/ch10-securite-des-conteneurs/cours.md
+          - "Lab 10.1 – Durcir un conteneur": partie-3-durcissement-et-orchestration-swarm/ch10-securite-des-conteneurs/lab-10-1-durcir-un-conteneur.md
+          - "Lab 10.2 – Analyser et corriger une image": partie-3-durcissement-et-orchestration-swarm/ch10-securite-des-conteneurs/lab-10-2-analyser-et-corriger-une-image.md
+          - Quiz: partie-3-durcissement-et-orchestration-swarm/ch10-securite-des-conteneurs/quiz.md
+      - "Chapitre 11 – Swarm : cluster et services":
+          - Cours: partie-3-durcissement-et-orchestration-swarm/ch11-swarm-cluster-et-services/cours.md
+          - "Lab 11.1 – Créer un cluster Swarm": partie-3-durcissement-et-orchestration-swarm/ch11-swarm-cluster-et-services/lab-11-1-creer-un-cluster-swarm.md
+          - "Lab 11.2 – Déployer et mettre à l'échelle des services": partie-3-durcissement-et-orchestration-swarm/ch11-swarm-cluster-et-services/lab-11-2-deployer-et-mettre-a-l-echelle-des-services.md
+          - Quiz: partie-3-durcissement-et-orchestration-swarm/ch11-swarm-cluster-et-services/quiz.md
+      - "Chapitre 12 – Swarm : stacks et exploitation":
+          - Cours: partie-3-durcissement-et-orchestration-swarm/ch12-swarm-stacks-et-exploitation/cours.md
+          - "Lab 12.1 – Déployer une stack": partie-3-durcissement-et-orchestration-swarm/ch12-swarm-stacks-et-exploitation/lab-12-1-deployer-une-stack.md
+          - "Lab 12.2 – Mises à jour, secrets et panne d'un nœud": partie-3-durcissement-et-orchestration-swarm/ch12-swarm-stacks-et-exploitation/lab-12-2-mises-a-jour-secrets-et-panne-d-un-nud.md
+          - Quiz: partie-3-durcissement-et-orchestration-swarm/ch12-swarm-stacks-et-exploitation/quiz.md
+      - Mini-projet 3: partie-3-durcissement-et-orchestration-swarm/mini-projet-3.md
+  - "Partie 4 – Industrialisation":
+      - partie-4-industrialisation/index.md
+      - "Chapitre 13 – Intégration continue":
+          - Cours: partie-4-industrialisation/ch13-integration-continue/cours.md
+          - "Lab 13.1 – Pipeline de construction d'image": partie-4-industrialisation/ch13-integration-continue/lab-13-1-pipeline-de-construction-d-image.md
+          - "Lab 13.2 – Tests et publication versionnée": partie-4-industrialisation/ch13-integration-continue/lab-13-2-tests-et-publication-versionnee.md
+          - Quiz: partie-4-industrialisation/ch13-integration-continue/quiz.md
+      - "Chapitre 14 – Livraison continue":
+          - Cours: partie-4-industrialisation/ch14-livraison-continue/cours.md
+          - "Lab 14.1 – Déploiement automatisé sur Swarm": partie-4-industrialisation/ch14-livraison-continue/lab-14-1-deploiement-automatise-sur-swarm.md
+          - "Lab 14.2 – Pipeline complet avec retour arrière": partie-4-industrialisation/ch14-livraison-continue/lab-14-2-pipeline-complet-avec-retour-arriere.md
+          - Quiz: partie-4-industrialisation/ch14-livraison-continue/quiz.md
+      - "Chapitre 15 – Synthèse et ouverture vers Kubernetes":
+          - Cours: partie-4-industrialisation/ch15-synthese-et-ouverture-vers-kubernetes/cours.md
+  - Projet final: projet-final.md
+  - Annexes:
+      - "Environnement de travail": annexes/environnement.md
+      - "Glossaire": annexes/glossaire.md
