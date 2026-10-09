@@ -1,102 +1,201 @@
 /* =========================================================
-   Charte graphique de la matière
-   Pour changer de style : modifier uniquement ce bloc.
+   Charte graphique : DevOps & Cloud Container (Slate & Cyan)
    ========================================================= */
 :root {
-  --matiere-principal: #0b3d5c;   /* bleu nuit : en-tête, titres */
-  --matiere-accent:    #1d9bd1;   /* bleu vif : liens, boutons */
-  --matiere-clair:     #e8f5fa;   /* fonds légers */
-  --matiere-trait:     #8ecde8;   /* traits sur fond sombre */
-  --matiere-degrade: linear-gradient(135deg, #0b3d5c 0%, #10597f 55%, #1d9bd1 100%);
+  --matiere-principal: #0f172a;   /* Slate 900 : structures, titres sombres */
+  --matiere-accent:    #0284c7;   /* Cyan Docker : boutons, éléments actifs */
+  --matiere-clair:     #f0f9ff;   /* Sky 50 : fond léger d'éléments */
+  --matiere-trait:     #38bdf8;   /* Cyan vif : lignes de séparation et focus */
+  --matiere-degrade: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0e7490 100%);
 }
 
 :root > * {
-  --md-primary-fg-color:        #0b3d5c;
-  --md-primary-fg-color--light: #3c647d;
-  --md-primary-fg-color--dark:  #07283c;
+  --md-primary-fg-color:        #0f172a;
+  --md-primary-fg-color--light: #1e293b;
+  --md-primary-fg-color--dark:  #0284c7;
   --md-primary-bg-color:        #ffffff;
-  --md-primary-bg-color--light: #e2e8eb;
-  --md-accent-fg-color:         #1d9bd1;
-  --md-typeset-a-color:         #1984b2;
+  --md-primary-bg-color--light: #f8fafc;
+  --md-accent-fg-color:         #0284c7;
+  --md-typeset-a-color:         #0369a1;
 }
 
-/* En-tête : logo sur pastille blanche (lisible quel que soit le logo) */
-.md-header { border-bottom: 3px solid var(--matiere-accent); }
+/* En-tête : Logo sur fond clair arrondi avec bordure subtile */
+.md-header { 
+  border-bottom: 3px solid var(--matiere-accent); 
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
 .md-header__button.md-logo {
-  background: #fff;
-  border-radius: 6px;
-  padding: .15rem .35rem;
-  margin: .35rem .4rem .35rem .2rem;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 0.2rem 0.4rem;
+  margin: 0.3rem 0.4rem 0.3rem 0.2rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
-.md-header__button.md-logo img { height: 1.6rem; width: auto; }
+.md-header__button.md-logo img { height: 1.7rem; width: auto; }
 
-/* Typographie des contenus */
-.md-typeset h1 { color: var(--matiere-principal); font-weight: 700; letter-spacing: -.01em; }
+/* Typographie et Titres */
+.md-typeset h1 { 
+  color: var(--matiere-principal); 
+  font-weight: 800; 
+  letter-spacing: -0.02em; 
+}
 .md-typeset h2 {
   color: var(--matiere-principal);
   font-weight: 700;
-  border-bottom: 2px solid var(--matiere-clair);
-  padding-bottom: .3rem;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.4rem;
 }
-.md-typeset h3 { color: #285470; font-weight: 600; }
+.md-typeset h3 { 
+  color: #0369a1; 
+  font-weight: 600; 
+}
 
-/* Tableaux */
+/* Tableaux de données & spécifications */
 .md-typeset table:not([class]) {
-  font-size: .72rem;
-  border: 1px solid #d6edf7;
-  border-radius: 6px;
-  box-shadow: none;
+  font-size: 0.8rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 .md-typeset table:not([class]) th {
   background: var(--matiere-principal);
-  color: #fff;
+  color: #ffffff;
   font-weight: 600;
+  letter-spacing: 0.03em;
 }
-.md-typeset table:not([class]) tbody tr:nth-child(even) { background: #f6fbfd; }
+.md-typeset table:not([class]) tbody tr:nth-child(even) { 
+  background: #f8fafc; 
+}
+.md-typeset table:not([class]) tbody tr:hover { 
+  background: #f1f5f9; 
+}
 
 /* Boutons */
 .md-typeset .md-button--primary {
   background-color: var(--matiere-accent);
   border-color: var(--matiere-accent);
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+.md-typeset .md-button--primary:hover {
+  background-color: #0369a1;
+  border-color: #0369a1;
 }
 
-/* Cases à cocher (points de contrôle) */
-.md-typeset .task-list-control .task-list-indicator::before { background-color: var(--matiere-accent); }
+/* Cases à cocher des listes de contrôle */
+.md-typeset .task-list-control .task-list-indicator::before { 
+  background-color: var(--matiere-accent); 
+}
 
 /* =========================================================
-   Page d'accueil (bannière)
+   Page d'accueil Hero (Bannière Conteneurs & Swarm)
    ========================================================= */
-.hero { background: var(--matiere-degrade); color: #fff; position: relative; overflow: hidden; }
+.hero { 
+  background: var(--matiere-degrade); 
+  color: #ffffff; 
+  position: relative; 
+  overflow: hidden; 
+  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+}
 .hero::before {
   content: "";
-  position: absolute; inset: 0;
+  position: absolute; 
+  inset: 0;
   background: url("../img/banniere.svg") center / cover no-repeat;
-  opacity: .6;
+  opacity: 0.85;
+  mix-blend-mode: screen;
 }
 .hero__inner {
   position: relative;
-  display: flex; gap: 2rem; align-items: center; justify-content: space-between;
-  padding: 3rem .8rem;
+  z-index: 1;
+  display: flex; 
+  gap: 2rem; 
+  align-items: center; 
+  justify-content: space-between;
+  padding: 3.5rem 1rem;
 }
 .hero__etiquette {
-  text-transform: uppercase; letter-spacing: .12em;
-  font-size: .68rem; opacity: .9; margin: 0;
+  text-transform: uppercase; 
+  letter-spacing: 0.15em;
+  font-size: 0.7rem; 
+  font-weight: 700;
+  color: #38bdf8; 
+  margin: 0;
 }
-.hero h1 { color: #fff; font-size: 2.2rem; font-weight: 700; margin: .4rem 0 .6rem; line-height: 1.2; }
-.hero__sous-titre { font-size: .95rem; opacity: .95; max-width: 34rem; margin: 0 0 1.2rem; }
-.hero .md-button { color: #fff; border-color: #fff; }
-.hero .md-button--primary { background: #fff; color: var(--matiere-principal); border-color: #fff; }
-.hero .md-button:hover { background: rgba(255,255,255,.18); color: #fff; border-color: #fff; }
-.hero .md-button--primary:hover { background: var(--matiere-clair); color: var(--matiere-principal); }
-.hero__chiffres { display: flex; gap: 1.6rem; flex-wrap: wrap; list-style: none; margin: 1.6rem 0 0; padding: 0; }
-.hero__chiffres li { display: flex; flex-direction: column; border-left: 3px solid var(--matiere-trait); padding-left: .7rem; }
-.hero__chiffres strong { font-size: 1.4rem; line-height: 1.1; }
-.hero__chiffres span { font-size: .68rem; opacity: .9; }
-.hero__logo { background: #fff; border-radius: 12px; padding: 1rem 1.2rem; flex: 0 0 auto; }
-.hero__logo img { display: block; height: 5rem; width: auto; }
+.hero h1 { 
+  color: #ffffff; 
+  font-size: 2.3rem; 
+  font-weight: 800; 
+  margin: 0.4rem 0 0.8rem; 
+  line-height: 1.25; 
+}
+.hero__sous-titre { 
+  font-size: 1rem; 
+  color: #cbd5e1; 
+  max-width: 36rem; 
+  margin: 0 0 1.5rem; 
+  line-height: 1.5;
+}
+.hero .md-button { 
+  color: #ffffff; 
+  border-color: rgba(255,255,255,0.4); 
+  border-radius: 6px;
+  backdrop-filter: blur(4px);
+}
+.hero .md-button--primary { 
+  background: #38bdf8; 
+  color: #0f172a; 
+  border-color: #38bdf8; 
+  font-weight: 700;
+}
+.hero .md-button:hover { 
+  background: rgba(255,255,255,0.15); 
+  color: #ffffff; 
+  border-color: #ffffff; 
+}
+.hero .md-button--primary:hover { 
+  background: #7dd3fc; 
+  border-color: #7dd3fc; 
+  color: #0f172a; 
+}
+.hero__chiffres { 
+  display: flex; 
+  gap: 1.8rem; 
+  flex-wrap: wrap; 
+  list-style: none; 
+  margin: 2rem 0 0; 
+  padding: 0; 
+}
+.hero__chiffres li { 
+  display: flex; 
+  flex-direction: column; 
+  border-left: 3px solid #0284c7; 
+  padding-left: 0.8rem; 
+}
+.hero__chiffres strong { 
+  font-size: 1.5rem; 
+  color: #ffffff;
+  line-height: 1.1; 
+}
+.hero__chiffres span { 
+  font-size: 0.7rem; 
+  color: #94a3b8; 
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.hero__logo { 
+  background: #ffffff; 
+  border-radius: 14px; 
+  padding: 1.2rem 1.4rem; 
+  flex: 0 0 auto; 
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+.hero__logo img { display: block; height: 5.2rem; width: auto; }
 
 @media (max-width: 44.9375em) {
-  .hero__inner { flex-direction: column; align-items: flex-start; padding: 2rem .8rem; }
-  .hero h1 { font-size: 1.7rem; }
-  .hero__logo img { height: 3.5rem; }
+  .hero__inner { flex-direction: column; align-items: flex-start; padding: 2.2rem 1rem; }
+  .hero h1 { font-size: 1.75rem; }
+  .hero__logo img { height: 3.8rem; }
 }
