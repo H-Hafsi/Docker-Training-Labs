@@ -1,201 +1,132 @@
 /* =========================================================
-   Charte graphique : DevOps & Cloud Container (Slate & Cyan)
+   Charte graphique de la matière
+   Pour changer de style : modifier uniquement ce bloc
+   (et, pour le mode sombre, le bloc « Mode sombre » plus bas).
    ========================================================= */
 :root {
-  --matiere-principal: #0f172a;   /* Slate 900 : structures, titres sombres */
-  --matiere-accent:    #0284c7;   /* Cyan Docker : boutons, éléments actifs */
-  --matiere-clair:     #f0f9ff;   /* Sky 50 : fond léger d'éléments */
-  --matiere-trait:     #38bdf8;   /* Cyan vif : lignes de séparation et focus */
-  --matiere-degrade: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0e7490 100%);
+  --matiere-principal: #0b2a4a;   /* bleu nuit : en-tête, titres */
+  --matiere-accent:    #326ce5;   /* bleu vif : liens, boutons */
+  --matiere-clair:     #eaf1fd;   /* fonds légers */
+  --matiere-trait:     #8db4ff;   /* traits sur fond sombre */
+  --matiere-degrade: linear-gradient(135deg, #0b2a4a 0%, #123f73 55%, #326ce5 100%);
+
+  /* Couleurs du contenu (mode clair) */
+  --matiere-titre:        #0b2a4a;   /* h1, h2 */
+  --matiere-titre-3:      #1b3b63;   /* h3 */
+  --matiere-bord-h2:      #eaf1fd;   /* filet sous les h2 */
+  --matiere-tab-bord:     #d5e0f0;   /* bordure des tableaux */
+  --matiere-tab-entete:   #0b2a4a;   /* fond des en-têtes de tableau */
+  --matiere-tab-pair:     #f6f9fe;   /* lignes paires des tableaux */
 }
 
 :root > * {
-  --md-primary-fg-color:        #0f172a;
-  --md-primary-fg-color--light: #1e293b;
-  --md-primary-fg-color--dark:  #0284c7;
+  --md-primary-fg-color:        #0b2a4a;
+  --md-primary-fg-color--light: #27456b;
+  --md-primary-fg-color--dark:  #071b32;
   --md-primary-bg-color:        #ffffff;
-  --md-primary-bg-color--light: #f8fafc;
-  --md-accent-fg-color:         #0284c7;
-  --md-typeset-a-color:         #0369a1;
+  --md-primary-bg-color--light: #dfe8f5;
+  --md-accent-fg-color:         #326ce5;
+  --md-typeset-a-color:         #1f55c4;
 }
 
-/* En-tête : Logo sur fond clair arrondi avec bordure subtile */
-.md-header { 
-  border-bottom: 3px solid var(--matiere-accent); 
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+/* =========================================================
+   Mode sombre (schéma « slate » de Material)
+   Le sélecteur body[...] est plus précis que « :root > * »
+   et l'emporte donc, quel que soit l'ordre.
+   ========================================================= */
+body[data-md-color-scheme="slate"] {
+  /* Liens et accent : plus clairs pour rester lisibles sur fond sombre */
+  --md-typeset-a-color:  #8db4ff;
+  --md-accent-fg-color:  #6f9bff;
+
+  /* Contenu */
+  --matiere-titre:        #e8f0ff;
+  --matiere-titre-3:      #bcd3ff;
+  --matiere-bord-h2:      #2b3a52;
+  --matiere-tab-bord:     #2b3a52;
+  --matiere-tab-entete:   #123f73;
+  --matiere-tab-pair:     rgba(255, 255, 255, .04);
 }
+
+/* En-tête : logo sur pastille blanche (lisible quel que soit le logo) */
+.md-header { border-bottom: 3px solid var(--matiere-accent); }
 .md-header__button.md-logo {
-  background: #ffffff;
-  border-radius: 8px;
-  padding: 0.2rem 0.4rem;
-  margin: 0.3rem 0.4rem 0.3rem 0.2rem;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  background: #fff;
+  border-radius: 6px;
+  padding: .15rem .35rem;
+  margin: .35rem .4rem .35rem .2rem;
 }
-.md-header__button.md-logo img { height: 1.7rem; width: auto; }
+.md-header__button.md-logo img { height: 1.6rem; width: auto; }
 
-/* Typographie et Titres */
-.md-typeset h1 { 
-  color: var(--matiere-principal); 
-  font-weight: 800; 
-  letter-spacing: -0.02em; 
-}
+/* Typographie des contenus */
+.md-typeset h1 { color: var(--matiere-titre); font-weight: 700; letter-spacing: -.01em; }
 .md-typeset h2 {
-  color: var(--matiere-principal);
+  color: var(--matiere-titre);
   font-weight: 700;
-  border-bottom: 2px solid #e2e8f0;
-  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--matiere-bord-h2);
+  padding-bottom: .3rem;
 }
-.md-typeset h3 { 
-  color: #0369a1; 
-  font-weight: 600; 
-}
+.md-typeset h3 { color: var(--matiere-titre-3); font-weight: 600; }
 
-/* Tableaux de données & spécifications */
+/* Tableaux */
 .md-typeset table:not([class]) {
-  font-size: 0.8rem;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  font-size: .72rem;
+  border: 1px solid var(--matiere-tab-bord);
+  border-radius: 6px;
+  box-shadow: none;
 }
 .md-typeset table:not([class]) th {
-  background: var(--matiere-principal);
-  color: #ffffff;
+  background: var(--matiere-tab-entete);
+  color: #fff;
   font-weight: 600;
-  letter-spacing: 0.03em;
 }
-.md-typeset table:not([class]) tbody tr:nth-child(even) { 
-  background: #f8fafc; 
-}
-.md-typeset table:not([class]) tbody tr:hover { 
-  background: #f1f5f9; 
-}
+.md-typeset table:not([class]) tbody tr:nth-child(even) { background: var(--matiere-tab-pair); }
 
 /* Boutons */
 .md-typeset .md-button--primary {
   background-color: var(--matiere-accent);
   border-color: var(--matiere-accent);
-  border-radius: 6px;
-  font-weight: 600;
-  transition: all 0.2s ease;
-}
-.md-typeset .md-button--primary:hover {
-  background-color: #0369a1;
-  border-color: #0369a1;
 }
 
-/* Cases à cocher des listes de contrôle */
-.md-typeset .task-list-control .task-list-indicator::before { 
-  background-color: var(--matiere-accent); 
-}
+/* Cases à cocher (points de contrôle) */
+.md-typeset .task-list-control .task-list-indicator::before { background-color: var(--matiere-accent); }
 
 /* =========================================================
-   Page d'accueil Hero (Bannière Conteneurs & Swarm)
+   Page d'accueil (bannière)
+   La bannière garde son fond bleu et son texte blanc dans les
+   deux modes : elle est lisible sans adaptation.
    ========================================================= */
-.hero { 
-  background: var(--matiere-degrade); 
-  color: #ffffff; 
-  position: relative; 
-  overflow: hidden; 
-  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
-}
+.hero { background: var(--matiere-degrade); color: #fff; position: relative; overflow: hidden; }
 .hero::before {
   content: "";
-  position: absolute; 
-  inset: 0;
+  position: absolute; inset: 0;
   background: url("../img/banniere.svg") center / cover no-repeat;
-  opacity: 0.85;
-  mix-blend-mode: screen;
+  opacity: .6;
 }
 .hero__inner {
   position: relative;
-  z-index: 1;
-  display: flex; 
-  gap: 2rem; 
-  align-items: center; 
-  justify-content: space-between;
-  padding: 3.5rem 1rem;
+  display: flex; gap: 2rem; align-items: center; justify-content: space-between;
+  padding: 3rem .8rem;
 }
 .hero__etiquette {
-  text-transform: uppercase; 
-  letter-spacing: 0.15em;
-  font-size: 0.7rem; 
-  font-weight: 700;
-  color: #38bdf8; 
-  margin: 0;
+  text-transform: uppercase; letter-spacing: .12em;
+  font-size: .68rem; opacity: .9; margin: 0;
 }
-.hero h1 { 
-  color: #ffffff; 
-  font-size: 2.3rem; 
-  font-weight: 800; 
-  margin: 0.4rem 0 0.8rem; 
-  line-height: 1.25; 
-}
-.hero__sous-titre { 
-  font-size: 1rem; 
-  color: #cbd5e1; 
-  max-width: 36rem; 
-  margin: 0 0 1.5rem; 
-  line-height: 1.5;
-}
-.hero .md-button { 
-  color: #ffffff; 
-  border-color: rgba(255,255,255,0.4); 
-  border-radius: 6px;
-  backdrop-filter: blur(4px);
-}
-.hero .md-button--primary { 
-  background: #38bdf8; 
-  color: #0f172a; 
-  border-color: #38bdf8; 
-  font-weight: 700;
-}
-.hero .md-button:hover { 
-  background: rgba(255,255,255,0.15); 
-  color: #ffffff; 
-  border-color: #ffffff; 
-}
-.hero .md-button--primary:hover { 
-  background: #7dd3fc; 
-  border-color: #7dd3fc; 
-  color: #0f172a; 
-}
-.hero__chiffres { 
-  display: flex; 
-  gap: 1.8rem; 
-  flex-wrap: wrap; 
-  list-style: none; 
-  margin: 2rem 0 0; 
-  padding: 0; 
-}
-.hero__chiffres li { 
-  display: flex; 
-  flex-direction: column; 
-  border-left: 3px solid #0284c7; 
-  padding-left: 0.8rem; 
-}
-.hero__chiffres strong { 
-  font-size: 1.5rem; 
-  color: #ffffff;
-  line-height: 1.1; 
-}
-.hero__chiffres span { 
-  font-size: 0.7rem; 
-  color: #94a3b8; 
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-.hero__logo { 
-  background: #ffffff; 
-  border-radius: 14px; 
-  padding: 1.2rem 1.4rem; 
-  flex: 0 0 auto; 
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
-}
-.hero__logo img { display: block; height: 5.2rem; width: auto; }
+.hero h1 { color: #fff; font-size: 2.2rem; font-weight: 700; margin: .4rem 0 .6rem; line-height: 1.2; }
+.hero__sous-titre { font-size: .95rem; opacity: .95; max-width: 34rem; margin: 0 0 1.2rem; }
+.hero .md-button { color: #fff; border-color: #fff; }
+.hero .md-button--primary { background: #fff; color: var(--matiere-principal); border-color: #fff; }
+.hero .md-button:hover { background: rgba(255,255,255,.18); color: #fff; border-color: #fff; }
+.hero .md-button--primary:hover { background: var(--matiere-clair); color: var(--matiere-principal); }
+.hero__chiffres { display: flex; gap: 1.6rem; flex-wrap: wrap; list-style: none; margin: 1.6rem 0 0; padding: 0; }
+.hero__chiffres li { display: flex; flex-direction: column; border-left: 3px solid var(--matiere-trait); padding-left: .7rem; }
+.hero__chiffres strong { font-size: 1.4rem; line-height: 1.1; }
+.hero__chiffres span { font-size: .68rem; opacity: .9; }
+.hero__logo { background: #fff; border-radius: 12px; padding: 1rem 1.2rem; flex: 0 0 auto; }
+.hero__logo img { display: block; height: 5rem; width: auto; }
 
 @media (max-width: 44.9375em) {
-  .hero__inner { flex-direction: column; align-items: flex-start; padding: 2.2rem 1rem; }
-  .hero h1 { font-size: 1.75rem; }
-  .hero__logo img { height: 3.8rem; }
+  .hero__inner { flex-direction: column; align-items: flex-start; padding: 2rem .8rem; }
+  .hero h1 { font-size: 1.7rem; }
+  .hero__logo img { height: 3.5rem; }
 }

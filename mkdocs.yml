@@ -13,23 +13,38 @@ theme:
   name: material
   custom_dir: overrides
   language: fr
-  logo: assets/img/profile.jpg
-  favicon: assets/img/profile.jpg
+  logo: assets/img/docker.png
+  favicon: assets/img/docker.png
   font:
     text: Source Sans 3
     code: JetBrains Mono
   palette:
-    scheme: default
-    primary: custom
-    accent: custom
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Passer en mode sombre
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Passer en mode clair
   features:
     - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.top
     - navigation.indexes
     - navigation.footer
+    - navigation.tracking
     - search.suggest
     - search.highlight
+    - search.share
     - content.code.copy
+    - content.code.annotate
     - content.tabs.link
     - toc.follow
 

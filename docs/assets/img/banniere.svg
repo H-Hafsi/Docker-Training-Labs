@@ -1,97 +1,77 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="100%" height="100%">
   <defs>
-    <!-- Gradients -->
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0f172a" stop-opacity="0.9" />
-      <stop offset="50%" stop-color="#1e293b" stop-opacity="0.7" />
-      <stop offset="100%" stop-color="#0e7490" stop-opacity="0.8" />
+    <!-- Fond principal : très sombre à gauche (ardoise nuit) vers bleu/teal à droite -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#020617" stop-opacity="0.98" />
+      <stop offset="45%" stop-color="#0f172a" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#0e7490" stop-opacity="0.75" />
     </linearGradient>
 
-    <linearGradient id="cyanBox" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.8" />
-      <stop offset="100%" stop-color="#0284c7" stop-opacity="0.4" />
+    <!-- Masque d'assombrissement renforcé sur la gauche pour détacher le texte blanc -->
+    <linearGradient id="leftDarken" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#020617" stop-opacity="0.92" />
+      <stop offset="50%" stop-color="#020617" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#020617" stop-opacity="0.0" />
     </linearGradient>
 
-    <linearGradient id="blueBox" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.7" />
-      <stop offset="100%" stop-color="#1d4ed8" stop-opacity="0.3" />
-    </linearGradient>
-
-    <linearGradient id="emeraldBox" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#34d399" stop-opacity="0.7" />
-      <stop offset="100%" stop-color="#059669" stop-opacity="0.3" />
-    </linearGradient>
-
+    <!-- Grille de fond subtile -->
     <pattern id="gridPattern" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#334155" stroke-width="0.5" stroke-opacity="0.4"/>
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#334155" stroke-width="0.5" stroke-opacity="0.2"/>
     </pattern>
   </defs>
 
-  <!-- Fond dynamique avec grille -->
+  <!-- Arrière-plan sombre & grille -->
   <rect width="1200" height="400" fill="url(#bgGrad)" />
   <rect width="1200" height="400" fill="url(#gridPattern)" />
 
-  <!-- Lignes de connexions & pipelines CI/CD -->
-  <g stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="6,6" opacity="0.4">
+  <!-- Lignes de pipelines et connexions réseau (estompées sur la gauche) -->
+  <g stroke="#38bdf8" stroke-width="1.2" stroke-dasharray="6,6" opacity="0.2">
     <path d="M 100 200 C 250 120, 350 280, 500 180 S 750 220, 900 150 L 1150 220" fill="none" />
     <path d="M 50 300 C 300 350, 450 100, 700 250 S 950 100, 1100 280" fill="none" stroke="#a7f3d0" />
   </g>
 
-  <!-- Bloc Isométrique 1 : Conteneur principal (Docker Engine / App Core) -->
-  <g transform="translate(820, 130)">
-    <!-- Top Face -->
-    <polygon points="0,-30 50,-55 100,-30 50,-5" fill="#38bdf8" opacity="0.8" />
-    <!-- Left Face -->
+  <!-- Visualisations Isométriques Docker & Swarm (Côté droit) -->
+  
+  <!-- Conteneur principal (Docker Engine) -->
+  <g transform="translate(830, 140)">
+    <polygon points="0,-30 50,-55 100,-30 50,-5" fill="#38bdf8" opacity="0.85" />
     <polygon points="0,-30 50,-5 50,55 0,30" fill="#0284c7" opacity="0.9" />
-    <!-- Right Face -->
     <polygon points="50,-5 100,-30 100,30 50,55" fill="#0369a1" opacity="0.95" />
-    <!-- Conteneur Sillons (Lignes de conteneur de fret) -->
     <line x1="15" y1="-7" x2="15" y2="28" stroke="#38bdf8" stroke-width="1.5" opacity="0.6" />
     <line x1="32" y1="2" x2="32" y2="37" stroke="#38bdf8" stroke-width="1.5" opacity="0.6" />
     <line x1="68" y1="2" x2="68" y2="37" stroke="#38bdf8" stroke-width="1.5" opacity="0.6" />
     <line x1="85" y1="-7" x2="85" y2="28" stroke="#38bdf8" stroke-width="1.5" opacity="0.6" />
   </g>
 
-  <!-- Bloc Isométrique 2 : Swarm Node (Empilé au dessus) -->
-  <g transform="translate(820, 55)">
+  <!-- Nœud Swarm (Empilé au dessus) -->
+  <g transform="translate(830, 65)">
     <polygon points="0,-30 50,-55 100,-30 50,-5" fill="#60a5fa" opacity="0.85" />
     <polygon points="0,-30 50,-5 50,45 0,20" fill="#2563eb" opacity="0.9" />
     <polygon points="50,-5 100,-30 100,20 50,45" fill="#1d4ed8" opacity="0.95" />
   </g>
 
-  <!-- Bloc Isométrique 3 : Microservice / Base de données (Vert Santé) -->
-  <g transform="translate(930, 190)">
+  <!-- Service / Base de données (Vert) -->
+  <g transform="translate(940, 200)">
     <polygon points="0,-25 40,-45 80,-25 40,-5" fill="#34d399" opacity="0.8" />
     <polygon points="0,-25 40,-5 40,40 0,20" fill="#059669" opacity="0.85" />
     <polygon points="40,-5 80,-25 80,20 40,40" fill="#047857" opacity="0.9" />
   </g>
 
-  <!-- Bloc Isométrique 4 : Registre / Cache (Secondaire à gauche) -->
-  <g transform="translate(710, 200)">
-    <polygon points="0,-25 40,-45 80,-25 40,-5" fill="#818cf8" opacity="0.7" />
+  <!-- Registre / Cache (Violet) -->
+  <g transform="translate(720, 210)">
+    <polygon points="0,-25 40,-45 80,-25 40,-5" fill="#818cf8" opacity="0.75" />
     <polygon points="0,-25 40,-5 40,35 0,15" fill="#4f46e5" opacity="0.8" />
     <polygon points="40,-5 80,-25 80,15 40,35" fill="#3730a3" opacity="0.85" />
   </g>
 
-  <!-- Cluster Nodes & Pulsing Dots (Réseau de conteneurs / Swarm Nodes) -->
+  <!-- Points et nœuds lumineux réseau -->
   <g fill="#38bdf8">
-    <circle cx="150" cy="220" r="5" opacity="0.9"/>
-    <circle cx="150" cy="220" r="12" fill="none" stroke="#38bdf8" stroke-width="1.5" opacity="0.5"/>
-    
-    <circle cx="320" cy="140" r="6" opacity="0.9" />
-    <circle cx="320" cy="140" r="15" fill="none" stroke="#38bdf8" stroke-width="1.5" opacity="0.4"/>
-
-    <circle cx="500" cy="180" r="7" fill="#34d399" opacity="0.9"/>
-    <circle cx="500" cy="180" r="18" fill="none" stroke="#34d399" stroke-width="1.5" opacity="0.4"/>
-
-    <circle cx="670" cy="110" r="5" opacity="0.8"/>
-    <circle cx="1080" cy="240" r="6" fill="#38bdf8" opacity="0.8"/>
+    <circle cx="510" cy="180" r="6" fill="#34d399" opacity="0.8"/>
+    <circle cx="510" cy="180" r="16" fill="none" stroke="#34d399" stroke-width="1.2" opacity="0.3"/>
+    <circle cx="680" cy="110" r="5" opacity="0.7"/>
+    <circle cx="1090" cy="250" r="6" fill="#38bdf8" opacity="0.8"/>
   </g>
 
-  <!-- Code / Terminal Overlay Subtil (Thématique Docker/CLI) -->
-  <g transform="translate(80, 80)" fill="#94a3b8" font-family="monospace" font-size="12" opacity="0.35">
-    <text x="0" y="0">$ docker run -d -p 8080:80 --name webapp nginx:alpine</text>
-    <text x="0" y="25">$ docker service create --replicas 3 --name cluster-api</text>
-    <text x="0" y="50">$ docker stack deploy -c docker-compose.yml production</text>
-  </g>
+  <!-- Calque d'ombre finale projeté sur la moitié gauche (Lisibilité parfaite du texte) -->
+  <rect width="1200" height="400" fill="url(#leftDarken)" />
 </svg>
